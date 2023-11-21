@@ -1,0 +1,106 @@
+<mvc:View controllerName="zcb.sd.chart01.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+>
+    <Page id="page" title="{i18n>title}" showNavButton="false">
+        <List
+			headerText="판매제품"
+			mode="SingleSelect"
+			id="MatnrList"
+			selectionChange=".onChartTypeChanged"
+			includeItemInSelection="true">
+			<StandardListItem
+				id="FERT_ASP"
+				title="FERT_ASP"
+				description="아스팔트"
+				selected="true"/>
+            <StandardListItem
+				id="FERT_DIE"
+				title="FERT_DIE"
+				description="디젤"
+				selected="false"/>
+            <StandardListItem
+				id="FERT_GAS"
+				title="FERT_GAS"
+				description="휘발유"
+				selected="false"/>
+            <StandardListItem
+				id="FERT_JET"
+				title="FERT_JET"
+				description="항공유"
+				selected="false"/>
+			<StandardListItem
+				id="FERT_LPG"
+				title="FERT_LPG"
+				description="천연가스(LPG)"
+				selected="false"/>
+			<StandardListItem
+				id="FERT_NAF"
+				title="FERT_NAF"
+				description="나프타"
+				selected="false"/>
+		</List>
+        
+        <Panel id="panel" headerText="판매계획연도">
+			<Select
+				id="selectSapyr"
+				change=".onChartTypeChanged"
+				width="100%">
+				<items>
+					<core:Item id="2020" text="2020년" key="2022"/>
+				</items>
+				<items>
+					<core:Item id="2021" text="2021년" key="2021"/>
+				</items>
+                <items>
+					<core:Item id="2022" text="2022년" key="2022"/>
+				</items>
+                <items>
+					<core:Item id="2023" text="2023년" key="2023"/>
+				</items>
+			</Select>
+		</Panel>
+        <content><!--
+            <viz:Popover id="idPopOver"></viz:Popover>
+            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='100%' width="100%" vizType='column'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset id="dataset" data="{/SalesPlanSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition id="dimension" name="제품명"
+                                value="{Maktx}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition id="measeure1" name="1월"
+                                value="{Mon01}" />
+                            <viz.data:MeasureDefinition id="measeure2" name="2월"
+                                value="{Mon02}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem
+                        id='valueAxisFeed'
+                        uid="valueAxis"
+                        type="Measure"
+                        values="1월" />
+                    <viz.feeds:FeedItem
+                        id='valueAxisFeed2'
+                        uid="valueAxis"
+                        type="Measure"
+                        values="2월" />
+                    <viz.feeds:FeedItem 
+                        id='valueAxisFeed3'
+                        uid="categoryAxis" 
+                        type="Dimension"
+                        values="제품명" />
+                </viz:feeds>
+            </viz:VizFrame>-->
+        </content>
+    </Page>
+</mvc:View>
