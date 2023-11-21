@@ -7,6 +7,7 @@
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
 >
     <Page id="page" title="{i18n>title}" showNavButton="false">
+        <!--
         <List
 			headerText="판매제품"
 			mode="SingleSelect"
@@ -43,13 +44,13 @@
 				title="FERT_NAF"
 				description="나프타"
 				selected="false"/>
-		</List>
+		</List>-->
         
         <Panel id="panel" headerText="판매계획연도">
 			<Select
 				id="selectSapyr"
 				change=".onChartTypeChanged"
-				width="100%">
+				width="50%">
 				<items>
 					<core:Item id="2020" text="2020년" key="2022"/>
 				</items>
@@ -64,21 +65,20 @@
 				</items>
 			</Select>
 		</Panel>
-        <content><!--
+        <content>
+        
             <viz:Popover id="idPopOver"></viz:Popover>
             <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
                 height='100%' width="100%" vizType='column'>
                 <viz:dataset>
                     <viz.data:FlattenedDataset id="dataset" data="{/SalesPlanSet}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition id="dimension" name="제품명"
+                            <viz.data:DimensionDefinition id="dimension1" name="제품명"
                                 value="{Maktx}" />
                         </viz.data:dimensions>
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition id="measeure1" name="1월"
-                                value="{Mon01}" />
-                            <viz.data:MeasureDefinition id="measeure2" name="2월"
-                                value="{Mon02}" />
+                            <viz.data:MeasureDefinition id="measeure1" name="총수량"
+                                value="{Sapqnt}" />
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
@@ -88,19 +88,15 @@
                         id='valueAxisFeed'
                         uid="valueAxis"
                         type="Measure"
-                        values="1월" />
-                    <viz.feeds:FeedItem
-                        id='valueAxisFeed2'
-                        uid="valueAxis"
-                        type="Measure"
-                        values="2월" />
+                        values="총수량" />
+                    
                     <viz.feeds:FeedItem 
                         id='valueAxisFeed3'
                         uid="categoryAxis" 
                         type="Dimension"
                         values="제품명" />
                 </viz:feeds>
-            </viz:VizFrame>-->
+            </viz:VizFrame>
         </content>
     </Page>
 </mvc:View>

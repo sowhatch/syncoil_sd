@@ -33,6 +33,9 @@ server:
           - path: /sap
             url: http://210.16.199.141:8001
             client: '100'
+          - path: /sap
+            url: http://210.16.199.141:8001
+            client: '100'
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

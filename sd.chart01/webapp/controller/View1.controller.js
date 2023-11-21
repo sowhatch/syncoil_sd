@@ -31,7 +31,6 @@ sap.ui.define([
                         success : function(oData){
                             var oConnModel = new JSONModel(oData);
                             oView.setModel(oConnModel,"view");
-                            alert("성공");
                         },
                         error : function(){
                             alert("조회실패");
