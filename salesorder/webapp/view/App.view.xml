@@ -1,7 +1,7 @@
 <mvc:View controllerName="zcb.sd.salesorder.controller.App"
-    xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.f">
     <App
         id="app"
 		class="sapUiDemoCart">

@@ -1,9 +1,9 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller",
+        "./BaseController",
         "sap/ui/model/json/JSONModel"
     ],
-    function(BaseController) {
+    function(BaseController, JSONModel) {
       "use strict";
   
       return BaseController.extend("zcb.sd.salesorder.controller.App", {

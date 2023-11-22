@@ -5,9 +5,10 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "zcb/sd/salesorder/model/models"
+        "zcb/sd/salesorder/model/models",
+        "./model/LocalStorageModel"
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models, LocalStorageModel) {
         "use strict";
 
         return UIComponent.extend("zcb.sd.salesorder.Component", {
