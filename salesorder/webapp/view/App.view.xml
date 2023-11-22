@@ -1,0 +1,18 @@
+<mvc:View controllerName="zcb.sd.salesorder.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <App
+        id="app"
+		class="sapUiDemoCart">
+		<f:FlexibleColumnLayout
+			id="layout"
+			busy="{appView>/busy}"
+			busyIndicatorDelay="{appView>/delay}"
+			layout="{appView>/layout}"
+			backgroundDesign="Translucent"
+			class="sapUiDemoCart"
+			stateChange=".onStateChange">
+		</f:FlexibleColumnLayout>
+    </App>
+</mvc:View>

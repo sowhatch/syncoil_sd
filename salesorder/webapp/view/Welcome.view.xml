@@ -1,0 +1,18 @@
+<mvc:View controllerName="zcb.sd.salesorder.controller.Welcome"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+        <landmarkInfo>
+			<PageAccessibleLandmarkInfo
+                id="pageLandmark"
+				rootRole="Region"
+				rootLabel="{i18n>Welcome_rootLabel}"
+				contentRole="Main"
+				contentLabel="{i18n>Welcome_contentLabel}"
+				headerRole="Region"
+				headerLabel="{i18n>Welcome_headerLabel}"/>
+		</landmarkInfo>
+        <content />
+    </Page>
+</mvc:View>
