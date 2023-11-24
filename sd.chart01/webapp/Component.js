@@ -5,9 +5,10 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "zcb/sd/chart01/model/models"
+        "zcb/sd/chart01/model/models",
+	    "zcb/sd/chart01/model/LocalStorageModel"
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models, LocalStorageModel) {
         "use strict";
 
         return UIComponent.extend("zcb.sd.chart01.Component", {
@@ -21,6 +22,8 @@ sap.ui.define([
              * @override
              */
             init: function () {
+                
+                ////////////////////////////////////////////////////////
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
@@ -30,6 +33,8 @@ sap.ui.define([
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             }
+
+            
         });
     }
 );
