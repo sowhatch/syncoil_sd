@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Nov 21 2023 18:08:49 GMT+0900 (한국 표준시)|
+|**Generation Date and Time**<br>Thu Nov 23 2023 12:31:05 GMT+0900 (한국 표준시)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
 |**App Generator Version**<br>1.11.2|
 |**Generation Platform**<br>Visual Studio Code|
@@ -19,7 +19,7 @@
 
 ## salesorder
 
-A Fiori application.
+[SD] 고객 주문 프로그램
 
 ### Starting the generated app
 

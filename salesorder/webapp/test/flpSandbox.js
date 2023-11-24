@@ -54,7 +54,7 @@ sap.ui.define([
 							"zcbsdsalesorder-display": {
 								"semanticObject": "zcbsdsalesorder",
 								"action": "display",
-								"description": "A Fiori application.",
+								"description": "[SD] 고객 주문 프로그램",
 								"title": "[SD] 고객 주문 프로그램",
 								"signature": {
 									"parameters": {}
