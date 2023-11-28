@@ -1,0 +1,73 @@
+<mvc:View
+	controllerName="zcbsd.salesorder.controller.AvailableProducts"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.ui.core"
+	xmlns="sap.m">
+	<Table
+		id="table"
+		mode="SingleSelectMaster"
+		growing="true"
+		growingThreshold="10"
+		beforeOpenContextMenu="onBeforeOpenContextMenu"
+		items="{/ProductSet}">
+		<contextMenu>
+			<Menu>
+				<MenuItem text="Move to Selected Products" press="moveToSelectedProductsTable" />
+			</Menu>
+		</contextMenu>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Available Products" />
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column>
+				<Text text="{i18n>Product}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>Plant}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>Amount}" />
+			</Column>
+            <Column>
+				<Text text="{i18n>Samntu}" />
+			</Column>
+		</columns>
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="available2selected"
+				sourceAggregation="items" />
+			<dnd:DropInfo
+				groupName="selected2available"
+				drop="onDropAvailableProductsTable" />
+		</dragDropConfig>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{Maktx} ({Matnr})"/>
+					<Text text="{Pname}" />
+					<ObjectNumber number="{parts:[
+                                                                {path: 'Amount'},
+                                                                {path: 'Currency'}
+                                                             ],
+                                                       type:'sap.ui.model.type.Currency',
+                                                       formatOptions: {showMeasure: false}
+                                                       }" 
+                                              unit="{Currency}"
+                                              textAlign="End"/>
+                     <ObjectNumber number="{parts:[
+                                                                {path: 'Samntu'},
+                                                                {path: 'CurrencyU'}
+                                                             ],
+                                                       type:'sap.ui.model.type.Currency',
+                                                       formatOptions: {showMeasure: false}
+                                                       }" 
+                                              unit="{CurrencyU}"
+                                              textAlign="End"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>

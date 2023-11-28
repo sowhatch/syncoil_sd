@@ -1,7 +1,27 @@
 <mvc:View controllerName="zcbsd.salesorder.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+   xmlns:dnd="sap.ui.core.dnd"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.ui.core"
+	xmlns="sap.m"
+	height="100%">
+	<Page
+		showHeader="false"
+		enableScrolling="true"
+		class="sapUiContentPadding">
+		<content>
+				<mvc:XMLView id="availableProducts" viewName="zcbsd.salesorder.view.AvailableProducts" />
+				<HBox justifyContent="Center" class="sapUiTinyMarginBeginEnd">
+					<Button
+						class="sapUiTinyMarginBottom"
+						icon="sap-icon://navigation-up-arrow"
+						tooltip="Move to selected"
+						press="moveToSelectedProductsTable"/>
+					<Button
+						icon="sap-icon://navigation-down-arrow"
+						tooltip="Move to available"
+						press="moveToAvailableProductsTable"/>
+				</HBox>
+				<mvc:XMLView id="selectedProducts" viewName="zcbsd.salesorder.view.SelectedProducts" />
+		</content>
+	</Page>
 </mvc:View>

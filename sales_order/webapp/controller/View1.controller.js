@@ -10,6 +10,14 @@ sap.ui.define([
         return Controller.extend("zcbsd.salesorder.controller.View1", {
             onInit: function () {
 
+            },
+
+            moveToAvailableProductsTable: function() {
+                this.byId("selectedProducts").getController().moveToAvailableProductsTable();
+            },
+    
+            moveToSelectedProductsTable: function() {
+                this.byId("availableProducts").getController().moveToSelectedProductsTable();
             }
         });
     });
