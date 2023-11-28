@@ -8,7 +8,7 @@
         <content>
           <Panel headerText="{i18n>panelHeaderText}">
             <content>
-                <t:Table rows="{/ProductSet}" id="Table">
+                <t:Table rows="{/ProductSet}" id="table">
                     <t:noData>
                         <BusyDialog />
                     </t:noData>

@@ -22,7 +22,7 @@ sap.ui.define([
 
 		moveToSelectedProductsTable: function() {
 			MessageBox.show("클릭쓰 ~");
-			var oAvailableProductsTable = Utils.getAvailableProductsTable(this);
+			var oAvailableProductsTable = this.getOwnerComponent().getRootControl().byId("view1").byId("table");
 			Utils.getSelectedItemContext(oAvailableProductsTable, function(oAvailableItemContext, iAvailableItemIndex) {
 				var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
 				var oFirstItemOfSelectedProductsTable = oSelectedProductsTable.getItems()[0];
@@ -46,7 +46,7 @@ sap.ui.define([
 		},
 		moveToAvailableProductsTable: function() {
 			MessageBox.show("취취~");
-			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
+			var oSelectedProductsTable = this.getOwnerComponent().getRootControl().byId("selectedProducts").byId("table");
 			Utils.getSelectedItemContext(oSelectedProductsTable, function(oSelectedItemContext, iSelectedItemIndex) {
 				// reset the rank property and update the model to refresh the bindings
 				var oProductsModel = oSelectedProductsTable.getModel();
