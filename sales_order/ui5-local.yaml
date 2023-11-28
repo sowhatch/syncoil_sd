@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: zcb.sd.chart01
+  name: zcbsd.salesorder
 type: application
 framework:
   name: SAPUI5
@@ -30,9 +30,6 @@ server:
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /sap/opu/odata/sap/ZCB_GW_SD010_SRV
-            url: http://210.16.199.141:8001
-            client: '100'
           - path: /sap
             url: http://210.16.199.141:8001
             client: '100'
@@ -41,7 +38,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/ZCB_SD_GW01_SRV
+          - urlPath: /sap/opu/odata/sap/ZCB_GW_SD020_SRV
             metadataPath: ./webapp/localService/metadata.xml
             mockdataPath: ./webapp/localService/data
             generateMockData: true
@@ -49,5 +46,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: zcb.sd.chart01
+        component: zcbsd.salesorder
         ui5Theme: sap_fiori_3

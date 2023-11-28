@@ -22,7 +22,7 @@ sap.ui.define([
 
 		moveToSelectedProductsTable: function() {
 			MessageBox.show("클릭쓰 ~");
-			var oAvailableProductsTable = this.getOwnerComponent().getRootControl().byId("view1").byId("table");
+			var oAvailableProductsTable = this.getOwnerComponent().getRootControl().byId("mainView").byId("table");
 			Utils.getSelectedItemContext(oAvailableProductsTable, function(oAvailableItemContext, iAvailableItemIndex) {
 				var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
 				var oFirstItemOfSelectedProductsTable = oSelectedProductsTable.getItems()[0];

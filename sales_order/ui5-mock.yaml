@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: zcb.sd.chart01
+  name: zcbsd.salesorder
 type: application
 server:
   customMiddleware:
@@ -16,9 +16,6 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /sap/opu/odata/sap/ZCB_GW_SD010_SRV
-            url: http://210.16.199.141:8001
-            client: '100'
           - path: /sap
             url: http://210.16.199.141:8001
             client: '100'
@@ -28,8 +25,13 @@ server:
         port: 35729
         path: webapp
         delay: 300
-    - name: fiori-tools-preview
-      afterMiddleware: fiori-tools-appreload
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
       configuration:
-        component: zcb.sd.chart01
-        ui5Theme: sap_fiori_3
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZCB_GW_SD020_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
