@@ -5,27 +5,12 @@ sap.ui.define([
 
 	var Utils = {
 
-		ranking: {
-			Initial: 0,
-			Default: 1024,
-			Before: function(iRank) {
-				return iRank + 1024;
-			},
-			Between: function(iRank1, iRank2) {
-				// limited to 53 rows
-				return (iRank1 + iRank2) / 2;
-			},
-			After: function(iRank) {
-				return iRank / 2;
-			}
-		},
-
 		getAvailableProductsTable: function(oController) {
-			return oController.getOwnerComponent().getRootControl().byId("availableProducts").byId("table");
+			return oController.getOwnerComponent().byId("View1").byId("availableProducts").byId("idAvailableTable");
 		},
 
 		getSelectedProductsTable: function(oController) {
-			return oController.getOwnerComponent().getRootControl().byId("selectedProducts").byId("table");
+			return oController.getOwnerComponent().byId("View1").byId("selectedProducts").byId("idSelectedTable");
 		},
 
 		getSelectedItemContext: function(oTable, fnCallback) {

@@ -13,11 +13,11 @@
 				<HBox justifyContent="Center" class="sapUiTinyMarginBeginEnd">
 					<Button
 						class="sapUiTinyMarginBottom"
-						icon="sap-icon://navigation-up-arrow"
+						icon="sap-icon://navigation-down-arrow"
 						tooltip="Move to selected"
 						press="moveToSelectedProductsTable"/>
 					<Button
-						icon="sap-icon://navigation-down-arrow"
+						icon="sap-icon://navigation-up-arrow"
 						tooltip="Move to available"
 						press="moveToAvailableProductsTable"/>
 				</HBox>

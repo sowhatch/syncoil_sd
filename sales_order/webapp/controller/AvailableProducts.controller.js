@@ -23,23 +23,61 @@ sap.ui.define([
 			var oAvailableProductsTable = Utils.getAvailableProductsTable(this);
 			Utils.getSelectedItemContext(oAvailableProductsTable, function(oAvailableItemContext, iAvailableItemIndex) {
 				var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
-				var oFirstItemOfSelectedProductsTable = oSelectedProductsTable.getItems()[0];
-				var iNewRank = Utils.ranking.Default;
+				var aData = oSelectedProductsTable.getModel("selected").getData();
+
+				var Matnr = oAvailableItemContext.getProperty("Matnr");
+				var check = true;
+				for( var i=0 ; aData.ProductSet.length ; i++ ){
+					if ( aData.ProductSet[i].Matnr == Matnr ) {
+						check = false;
+						sap.m.MessageBox.show("자재코드가 중첩되었습니다.");
+						break;
+					}
+				}
+
+				if ( check ){
+					var data = {
+						Maktx: "A",
+						Matnr: Matnr,
+						Pname: "C",
+						Quantity: 1
+					}
+	
+					if ( aData ) {
+						aData.ProductSet.push( data ) ;
+					} else {
+						aData = {
+							ProductSet: [ data ] 
+						};
+					}
+	
+					oSelectedProductsTable.getModel("selected").setData( aData );
+	
+				}
+
+
+				var oSelectedTableItems = oSelectedProductsTable.getItems();
+				
+				if ( oSelectedTableItems && oSelectedTableItems.length > 0 ){
+					var oFirstItemOfSelectedProductsTable = oSelectedTableItems[0]; 
+				}
+
+				// var iNewRank = Utils.ranking.Default;
 
 				if (oFirstItemOfSelectedProductsTable) {
 					var oFirstContextOfSelectedProductsTable = oFirstItemOfSelectedProductsTable.getBindingContext();
-					iNewRank =  Utils.ranking.Before(oFirstContextOfSelectedProductsTable.getProperty("Rank"));
+					// iNewRank =  Utils.ranking.Before(oFirstContextOfSelectedProductsTable.getProperty("Rank"));
 				}
 
-				var oProductsModel = oAvailableProductsTable.getModel();
-				oProductsModel.setProperty("Rank", iNewRank, oAvailableItemContext);
+				// var oProductsModel = oAvailableProductsTable.getModel();
+				// oProductsModel.setProperty("Rank", iNewRank, oAvailableItemContext);
 
 				// select the inserted and previously selected item
-				oSelectedProductsTable.getItems()[0].setSelected(true);
-				var oPrevSelectedItem = oAvailableProductsTable.getItems()[iAvailableItemIndex];
-				if (oPrevSelectedItem) {
-					oPrevSelectedItem.setSelected(true);
-				}
+				// oSelectedProductsTable.getItems()[0].setSelected(true);
+				// var oPrevSelectedItem = oAvailableProductsTable.getItems()[iAvailableItemIndex];
+				// if (oPrevSelectedItem) {
+				// 	oPrevSelectedItem.setSelected(true);
+				// }
 			}.bind(this));
 		},
 

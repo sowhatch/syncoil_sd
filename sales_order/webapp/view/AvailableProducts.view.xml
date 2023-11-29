@@ -5,7 +5,7 @@
 	xmlns:c="sap.ui.core"
 	xmlns="sap.m">
 	<Table
-		id="table"
+		id="idAvailableTable"
 		mode="SingleSelectMaster"
 		growing="true"
 		growingThreshold="10"

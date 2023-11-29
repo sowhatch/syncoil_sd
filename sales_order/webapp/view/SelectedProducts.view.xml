@@ -6,17 +6,19 @@
 	xmlns="sap.m"
 	height="100%">
 	<Table
-		id="table"
+		id="idSelectedTable"
 		mode="SingleSelectMaster"
 		growing="true"
 		growingThreshold="10"
 		beforeOpenContextMenu="onBeforeOpenContextMenu"
 		items="{
-			path: '/ProductSet',
-			filters: {path: 'Rank', operator: 'GT', value1: '0'},
-			sorter: {path: 'Rank', descending: true}
+			path: 'selected>/ProductSet'
 		}"
 		noData="Please drag-and-drop products here.">
+		
+			<!-- filters: {path: 'Rank', operator: 'GT', value1: '0'}, -->
+			<!-- sorter: {path: 'Rank', descending: true} -->
+
 		<contextMenu>
 			<Menu>
 				<MenuItem text="Move to Available Products" press="moveToAvailableProductsTable" />
@@ -54,10 +56,10 @@
 		<items>
 			<ColumnListItem>
 				<cells>
-					<Text text="{Maktx} ({Matnr})" wrapping="false" />
-					<Text text="{Pname}" wrapping="false" />
+					<Text text="{selected>Maktx} ({selected>Matnr})" wrapping="false" />
+					<Text text="{selected>Pname}" wrapping="false" />
 					<Input value="{
-						path: '',
+						path: 'selected>Quantity',
 						type: 'sap.ui.model.type.Integer'
 					}" />
 				</cells>

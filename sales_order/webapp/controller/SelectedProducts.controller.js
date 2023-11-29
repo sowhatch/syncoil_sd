@@ -1,10 +1,21 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"./Utils"
-], function(Controller, Utils) {
+	"./Utils",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, Utils,JSONModel) {
 	"use strict";
 
 	return Controller.extend("zcbsd.salesorder.controller.SelectedProducts", {
+
+		onInit: function () {
+			var oModel = new JSONModel({
+				ProductSet:[]
+			});
+			this.byId("idSelectedTable").setModel(oModel, "selected");
+		},
+
+		onBeforeRendering: function () {	
+		},
 
 		moveToAvailableProductsTable: function() {
 			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
