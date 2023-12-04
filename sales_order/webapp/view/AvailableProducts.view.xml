@@ -18,7 +18,7 @@
 		</contextMenu>
 		<headerToolbar>
 			<OverflowToolbar>
-				<Title text="Available Products" />
+				<Title text="제품 목록" />
 			</OverflowToolbar>
 		</headerToolbar>
 		<columns>

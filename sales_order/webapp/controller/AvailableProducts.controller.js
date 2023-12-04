@@ -26,28 +26,30 @@ sap.ui.define([
 				var aData = oSelectedProductsTable.getModel("selected").getData();
 
 				var Matnr = oAvailableItemContext.getProperty("Matnr");
+				var Maktx = oAvailableItemContext.getProperty("Maktx");
+				var Pname = oAvailableItemContext.getProperty("Pname");
 				var check = true;
-				for( var i=0 ; aData.ProductSet.length ; i++ ){
-					if ( aData.ProductSet[i].Matnr == Matnr ) {
+				/*for( var i=0 ; aData.OrderSet.length ; i++ ){
+					if ( aData.OrderSet[i].Matnr == Matnr && aData.OrderSet[i].Pname == Pname) {
 						check = false;
-						sap.m.MessageBox.show("자재코드가 중첩되었습니다.");
+						sap.m.MessageBox.show("같은 공장의 제품을 선택할 수 없습니다.");
 						break;
 					}
-				}
+				}*/
 
 				if ( check ){
 					var data = {
-						Maktx: "A",
+						Maktx: Maktx,
 						Matnr: Matnr,
-						Pname: "C",
-						Quantity: 1
+						Pname: Pname,
+						Quantity: 0
 					}
 	
 					if ( aData ) {
-						aData.ProductSet.push( data ) ;
+						aData.OrderSet.push( data ) ;
 					} else {
 						aData = {
-							ProductSet: [ data ] 
+							OrderSet: [ data ] 
 						};
 					}
 	

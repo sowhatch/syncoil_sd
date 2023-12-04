@@ -20,7 +20,7 @@
                     <PropertyRef Name="Invnr"/>
                 </Key>
                 <Property Name="Invnr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="행번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Cusnam" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="판매처명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Custid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="판매처코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Pname" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Quan" Type="Edm.Decimal" Nullable="false" Precision="20" Scale="3" sap:unicode="false" sap:unit="Unit" sap:label="수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>

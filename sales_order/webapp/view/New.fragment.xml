@@ -1,0 +1,39 @@
+<c:FragmentDefinition
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog id="idCreateDialog" icon="sap-icon://create" title="{i18n>createDialogTitle}">
+        <content>
+            <f:SimpleForm width="500px"
+                          layout="ResponsiveGridLayout"
+                          labelSpanS="4">
+                <f:content>
+
+                    <c:Title text="{i18n>OrderTitle}"/>
+                    
+                    <!--
+                    <c:Title text="{i18n>EtcInfo}"/>
+                    <Label text="{i18n>Deptime}"/>
+                    <TimePicker value="{path:'/Deptime', model: 'new', type:'sap.ui.model.odata.type.Time'}"/>
+                    <Label text="{i18n>Arrtime}"/>
+                    <TimePicker value="{new>/Arrtime}" valueFormat="HH:mm:ss" displayFormat="HH:mm:ss"/>
+
+                    <Label text="{i18n>Distance}"/>
+                    <Input value="{new>/Distance}"/> -->
+                    <ComboBox items="{new>/CustList}" selectedKey="{new>/Custid}">
+                        <items>
+                            <c:Item key="{new>Custid}" text="{new>text}"/>
+                        </items>
+                    </ComboBox>
+                   
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="{i18n>createCompleteButton}" press=".onCreateComplete"/>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>createCancelButton}" press=".onCreateCancel"/>
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>
