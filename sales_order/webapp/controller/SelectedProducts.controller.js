@@ -95,22 +95,22 @@ sap.ui.define([
 					Currency : curr
 				};
 				
-				aItem.push(item);
+				//aItem.push(item);
 
 				invnr++;
 				
-				// oModel.create(
-				// 	"/OrderSet",
-				// 	item,
-				// 	{
-				// 		success: function(){
-				// 		},
-				// 		error: function(oError){
-				// 			MessageBox.error("생성실패");
+				 oModel.create(
+				 	"/OrderSet",
+				 	item,
+				 	{
+				 		success: function(){
+				 		},
+				 		error: function(oError){
+				 			MessageBox.error("생성실패");
 	
-				// 		}
-				// 	}
-				// );
+				 		}
+				 	}
+				 );
 
 			}
 
@@ -122,8 +122,8 @@ sap.ui.define([
 				Quan : '0',
 				Unit : 'L',
 				Amount : '0',
-				Currency : curr,
-				toItem: aItem
+				Currency : curr
+				//toItem: aItem
 			};
 
 			oModel.create(
