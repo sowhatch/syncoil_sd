@@ -4,7 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:c="sap.ui.core"
 	xmlns="sap.m"
-	height="30%">
+	height="40%">
 	<Page title="{i18n>selectedTabletitle}">
 	<Table
 		id="idSelectedTable"
@@ -17,17 +17,7 @@
 		}"
 		noData="Please drag-and-drop products here.">
 		
-			<!-- filters: {path: 'Rank', operator: 'GT', value1: '0'}, -->
-			<!-- sorter: {path: 'Rank', descending: true} -->
-
-		<contextMenu>
-			<Menu>
-				<MenuItem text="Move to Available Products" press="moveToAvailableProductsTable" />
-				<MenuItem text="Move up" press="moveUp" />
-				<MenuItem text="Move down" press="moveDown" />
-			</Menu>
-		</contextMenu>
-		
+			
 		<columns>
 			<Column>
 				<Text text="{i18n>Product}" />
@@ -39,21 +29,7 @@
 				<Text text="{i18n>Quantity}" />
 			</Column>
 		</columns>
-		<dragDropConfig>
-			<dnd:DragInfo
-				groupName="selected2available"
-				sourceAggregation="items" />
-			<dnd:DropInfo
-				groupName="available2selected"
-				targetAggregation="items"
-				dropPosition="Between"
-				drop="onDropSelectedProductsTable" />
-			<dnd:DragDropInfo
-				sourceAggregation="items"
-				targetAggregation="items"
-				dropPosition="Between"
-				drop="onDropSelectedProductsTable"/>
-		</dragDropConfig>
+		
 		<items>
 			<ColumnListItem>
 				<cells>

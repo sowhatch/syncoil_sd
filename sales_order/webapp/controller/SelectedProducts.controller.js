@@ -66,9 +66,10 @@ sap.ui.define([
 
 			var curr = 'KRW';
 			var amount = 0.00;
-			console.log(typeof(amount));
 
 			var invnr = 1;
+
+			var aItem = [];
 
 		    var oModel = oView.getModel();
 
@@ -82,45 +83,52 @@ sap.ui.define([
 					curr = 'USD';
 					amount = oSelectedData.OrderSet[i].Samntu;
 				}
+
+				var item = {
+					Invnr : invnr.toString(),
+					Custid : '',
+					Matnr : oSelectedData.OrderSet[i].Matnr,
+					Pname : oSelectedData.OrderSet[i].Pname,
+					Quan : oSelectedData.OrderSet[i].Quantity,
+					Unit : 'L',
+					Amount : amount,
+					Currency : curr
+				};
 				
-				oModel.create(
-					"/OrderSet",
-					{
-						Invnr : invnr.toString(),
-						Custid : '',
-						Matnr : oSelectedData.OrderSet[i].Matnr,
-						Pname : oSelectedData.OrderSet[i].Pname,
-						Quan : oSelectedData.OrderSet[i].Quantity,
-						Unit : 'L',
-						Amount : amount,
-						Currency : curr
-					},
-					{
-						success: function(){
-						},
-						error: function(oError){
-							MessageBox.error("생성실패");
-	
-						}
-					}
-				);
+				aItem.push(item);
 
 				invnr++;
+				
+				// oModel.create(
+				// 	"/OrderSet",
+				// 	item,
+				// 	{
+				// 		success: function(){
+				// 		},
+				// 		error: function(oError){
+				// 			MessageBox.error("생성실패");
+	
+				// 		}
+				// 	}
+				// );
+
 			}
+
+			var header =  {
+				Invnr : '',
+				Custid : oData.Custid,
+				Matnr : '',
+				Pname : '',
+				Quan : '0',
+				Unit : 'L',
+				Amount : '0',
+				Currency : curr,
+				toItem: aItem
+			};
 
 			oModel.create(
 				"/OrderSet",
-				{
-					Invnr : '',
-					Custid : oData.Custid,
-					Matnr : '',
-					Pname : '',
-					Quan : 0.00,
-					Unit : 'L',
-					Amount : 0.00,
-					Currency : curr
-
-				},
+				header,
 				{
 					success: function(){
 						MessageBox.success("생성성공");
@@ -154,68 +162,6 @@ sap.ui.define([
 				}
 			});
 		},
-
-		onDropSelectedProductsTable: function(oEvent) {
-			var oDraggedItem = oEvent.getParameter("draggedControl");
-			var oDraggedItemContext = oDraggedItem.getBindingContext();
-			if (!oDraggedItemContext) {
-				return;
-			}
-
-			var oRanking = Utils.ranking;
-			var iNewRank = oRanking.Default;
-			var oDroppedItem = oEvent.getParameter("droppedControl");
-
-			if (oDroppedItem instanceof sap.m.ColumnListItem) {
-				// get the dropped row data
-				var sDropPosition = oEvent.getParameter("dropPosition");
-				var oDroppedItemContext = oDroppedItem.getBindingContext();
-				var iDroppedItemRank = oDroppedItemContext.getProperty("Rank");
-				var oDroppedTable = oDroppedItem.getParent();
-				var iDroppedItemIndex = oDroppedTable.indexOfItem(oDroppedItem);
-
-				// find the new index of the dragged row depending on the drop position
-				var iNewItemIndex = iDroppedItemIndex + (sDropPosition === "After" ? 1 : -1);
-				var oNewItem = oDroppedTable.getItems()[iNewItemIndex];
-				if (!oNewItem) {
-					// dropped before the first row or after the last row
-					iNewRank = oRanking[sDropPosition](iDroppedItemRank);
-				} else {
-					// dropped between first and the last row
-					var oNewItemContext = oNewItem.getBindingContext();
-					iNewRank = oRanking.Between(iDroppedItemRank, oNewItemContext.getProperty("Rank"));
-				}
-			}
-
-			// set the rank property and update the model to refresh the bindings
-			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
-			var oProductsModel = oSelectedProductsTable.getModel();
-			oProductsModel.setProperty("Rank", iNewRank, oDraggedItemContext);
-		},
-
-		moveSelectedItem: function(sDirection) {
-			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
-			Utils.getSelectedItemContext(oSelectedProductsTable, function(oSelectedItemContext, iSelectedItemIndex) {
-				var iSiblingItemIndex = iSelectedItemIndex + (sDirection === "Up" ? -1 : 1);
-				var oSiblingItem = oSelectedProductsTable.getItems()[iSiblingItemIndex];
-				var oSiblingItemContext = oSiblingItem.getBindingContext();
-				if (!oSiblingItemContext) {
-					return;
-				}
-
-				// swap the selected and the siblings rank
-				var oProductsModel = oSelectedProductsTable.getModel();
-				var iSiblingItemRank = oSiblingItemContext.getProperty("Rank");
-				var iSelectedItemRank = oSelectedItemContext.getProperty("Rank");
-
-				oProductsModel.setProperty("Rank", iSiblingItemRank, oSelectedItemContext);
-				oProductsModel.setProperty("Rank", iSelectedItemRank, oSiblingItemContext);
-
-				// after move select the sibling
-				oSelectedProductsTable.getItems()[iSiblingItemIndex].setSelected(true);
-			});
-		},
-
 
 		onBeforeOpenContextMenu: function(oEvent) {
 			oEvent.getParameters().listItem.setSelected(true);
