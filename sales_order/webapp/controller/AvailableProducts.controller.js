@@ -28,6 +28,8 @@ sap.ui.define([
 				var Matnr = oAvailableItemContext.getProperty("Matnr");
 				var Maktx = oAvailableItemContext.getProperty("Maktx");
 				var Pname = oAvailableItemContext.getProperty("Pname");
+				var Amount = oAvailableItemContext.getProperty("Amount");
+				var Samntu = oAvailableItemContext.getProperty("Samntu");
 				var check = true;
 				/*for( var i=0 ; aData.OrderSet.length ; i++ ){
 					if ( aData.OrderSet[i].Matnr == Matnr && aData.OrderSet[i].Pname == Pname) {
@@ -42,6 +44,8 @@ sap.ui.define([
 						Maktx: Maktx,
 						Matnr: Matnr,
 						Pname: Pname,
+						Amount: Amount,
+						Samntu : Samntu,
 						Quantity: 0
 					}
 	

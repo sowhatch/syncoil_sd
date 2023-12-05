@@ -8,7 +8,7 @@
 		id="idAvailableTable"
 		mode="SingleSelectMaster"
 		growing="true"
-		growingThreshold="10"
+		growingThreshold="6"
 		beforeOpenContextMenu="onBeforeOpenContextMenu"
 		items="{/ProductSet}">
 		<contextMenu>

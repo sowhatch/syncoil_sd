@@ -65,7 +65,8 @@ sap.ui.define([
 			var oData = oNewModel.getData();
 
 			var curr = 'KRW';
-			var amount = 0;
+			var amount = 0.00;
+			console.log(typeof(amount));
 
 			var invnr = 1;
 
@@ -85,7 +86,7 @@ sap.ui.define([
 				oModel.create(
 					"/OrderSet",
 					{
-						Invnr : invnr,
+						Invnr : invnr.toString(),
 						Custid : '',
 						Matnr : oSelectedData.OrderSet[i].Matnr,
 						Pname : oSelectedData.OrderSet[i].Pname,
@@ -114,9 +115,9 @@ sap.ui.define([
 					Custid : oData.Custid,
 					Matnr : '',
 					Pname : '',
-					Quan : '',
-					Unit : '',
-					Amount : '',
+					Quan : 0.00,
+					Unit : 'L',
+					Amount : 0.00,
 					Currency : curr
 
 				},
