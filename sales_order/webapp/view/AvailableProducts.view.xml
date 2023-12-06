@@ -18,12 +18,13 @@
 		</contextMenu>
 		<headerToolbar>
 			<OverflowToolbar>
-				<Title text="제품 목록" />
+				<c:Icon src="sap-icon://product"></c:Icon>
+				<Title text="제품 목록"/>
 			</OverflowToolbar>
 		</headerToolbar>
 		<columns>
 			<Column>
-				<Text text="{i18n>Product}" />
+				<Text text="{i18n>Product}"/>
 			</Column>
 			<Column>
 				<Text text="{i18n>Plant}" />

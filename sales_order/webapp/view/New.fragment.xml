@@ -2,14 +2,14 @@
     xmlns:c="sap.ui.core"
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form">
-    <Dialog id="idCreateDialog" icon="sap-icon://create" title="{i18n>createDialogTitle}">
+    <Dialog id="idCreateDialog" icon="sap-icon://customer-order-entry" title="{i18n>createDialogTitle}">
         <content>
             <f:SimpleForm width="500px"
                           layout="ResponsiveGridLayout"
                           labelSpanS="4">
                 <f:content>
 
-                    <c:Title text="{i18n>OrderTitle}"/>
+                    <c:Title text="{i18n>OrderTitle}" icon="sap-icon://customer"/>
                     
                     <!--
                     <c:Title text="{i18n>EtcInfo}"/>
@@ -30,10 +30,10 @@
             </f:SimpleForm>
         </content>
         <beginButton>
-            <Button text="{i18n>createCompleteButton}" press=".onCreateComplete"/>
+            <Button text="{i18n>createCompleteButton}" icon="sap-icon://cart-approval" press=".onCreateComplete"/>
         </beginButton>
         <endButton>
-            <Button text="{i18n>createCancelButton}" press=".onCreateCancel"/>
+            <Button text="{i18n>createCancelButton}" icon="sap-icon://sys-cancel" press=".onCreateCancel"/>
         </endButton>
     </Dialog>
 </c:FragmentDefinition>

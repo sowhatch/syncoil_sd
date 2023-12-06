@@ -147,20 +147,17 @@ sap.ui.define([
 		},
 
 		moveToAvailableProductsTable: function() {
-			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
-			Utils.getSelectedItemContext(oSelectedProductsTable, function(oSelectedItemContext, iSelectedItemIndex) {
-			
-				// reset the rank property and update the model to refresh the bindings
-				//var oProductsModel = oSelectedProductsTable.getModel();
-				//oProductsModel.setProperty("Rank", Utils.ranking.Initial, oSelectedItemContext);
+			var oView = this.getView();
+			var oTable = oView.byId("idSelectedTable");
+            var oIndex = oTable.getSelectedItem();
+			//var oContext = oTable.getContextByIndex(oIndex);
 
-				// select the previously selected position
-				var aItemsOfSelectedProductsTable = oSelectedProductsTable.getItems();
-				var oPrevItem = aItemsOfSelectedProductsTable[Math.min(iSelectedItemIndex, aItemsOfSelectedProductsTable.length - 1)];
-				if (oPrevItem) {
-					oPrevItem.setSelected(true);
-				}
-			});
+			var oSelectedProductsTable = Utils.getSelectedProductsTable(this);
+			var aData = oSelectedProductsTable.getModel("selected").getData();
+			aData.OrderSet.splice(oIndex,1) ;
+
+			oSelectedProductsTable.getModel("selected").setData( aData );
+			
 		},
 
 		onBeforeOpenContextMenu: function(oEvent) {

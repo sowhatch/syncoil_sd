@@ -48,7 +48,7 @@
 	<footer>
 		<OverflowToolbar>
                 <ToolbarSpacer/>
-                <Button text="{i18n>createButton}" press=".onOpenCreateDialog" icon="sap-icon://create" type="Accept"/>
+                <Button text="{i18n>createButton}" press=".onOpenCreateDialog" icon="sap-icon://customer-order-entry" type="Accept"/>
             </OverflowToolbar>
 	</footer>
 	</Page>

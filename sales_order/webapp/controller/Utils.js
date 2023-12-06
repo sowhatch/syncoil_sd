@@ -18,7 +18,7 @@ sap.ui.define([
 			var oSelectedItem = aSelectedItems[0];
 
 			if (!oSelectedItem) {
-				MessageToast.show("Please select a row!");
+				MessageToast.show("한 행을 선택해주세요 !");
 				return;
 			}
 

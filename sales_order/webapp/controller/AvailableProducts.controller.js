@@ -68,22 +68,11 @@ sap.ui.define([
 					var oFirstItemOfSelectedProductsTable = oSelectedTableItems[0]; 
 				}
 
-				// var iNewRank = Utils.ranking.Default;
 
 				if (oFirstItemOfSelectedProductsTable) {
 					var oFirstContextOfSelectedProductsTable = oFirstItemOfSelectedProductsTable.getBindingContext();
-					// iNewRank =  Utils.ranking.Before(oFirstContextOfSelectedProductsTable.getProperty("Rank"));
 				}
 
-				// var oProductsModel = oAvailableProductsTable.getModel();
-				// oProductsModel.setProperty("Rank", iNewRank, oAvailableItemContext);
-
-				// select the inserted and previously selected item
-				// oSelectedProductsTable.getItems()[0].setSelected(true);
-				// var oPrevSelectedItem = oAvailableProductsTable.getItems()[iAvailableItemIndex];
-				// if (oPrevSelectedItem) {
-				// 	oPrevSelectedItem.setSelected(true);
-				// }
 			}.bind(this));
 		},
 
