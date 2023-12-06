@@ -131,7 +131,7 @@ sap.ui.define([
 				header,
 				{
 					success: function(){
-						MessageBox.success("생성성공");
+						MessageBox.success("주문이 접수되었습니다.");
 						oView.byId("idCreateDialog").close();
 					},
 					error: function(oError){
