@@ -31,15 +31,20 @@ sap.ui.define([
 				var Amount = oAvailableItemContext.getProperty("Amount");
 				var Samntu = oAvailableItemContext.getProperty("Samntu");
 				var check = true;
-				/*for( var i=0 ; aData.OrderSet.length ; i++ ){
+				for( var i=0 ; i < aData.OrderSet.length ; i++ ){
 					if ( aData.OrderSet[i].Matnr == Matnr && aData.OrderSet[i].Pname == Pname) {
 						check = false;
 						sap.m.MessageBox.show("같은 공장의 제품을 선택할 수 없습니다.");
 						break;
+						
 					}
-				}*/
+					else{
+						check = true;
+					}
+				}
 
-				if ( check ){
+				if ( check == true ){
+					
 					var data = {
 						Maktx: Maktx,
 						Matnr: Matnr,
@@ -58,11 +63,10 @@ sap.ui.define([
 					}
 	
 					oSelectedProductsTable.getModel("selected").setData( aData );
-	
 				}
 
 
-				var oSelectedTableItems = oSelectedProductsTable.getItems();
+				/*var oSelectedTableItems = oSelectedProductsTable.getItems();
 				
 				if ( oSelectedTableItems && oSelectedTableItems.length > 0 ){
 					var oFirstItemOfSelectedProductsTable = oSelectedTableItems[0]; 
@@ -71,7 +75,7 @@ sap.ui.define([
 
 				if (oFirstItemOfSelectedProductsTable) {
 					var oFirstContextOfSelectedProductsTable = oFirstItemOfSelectedProductsTable.getBindingContext();
-				}
+				}*/
 
 			}.bind(this));
 		},

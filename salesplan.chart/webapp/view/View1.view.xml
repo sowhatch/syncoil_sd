@@ -52,7 +52,7 @@
 				change=".onChartTypeChanged"
 				width="50%">
 				<items>
-                    <core:Item text="2023년" key="2024"/>
+                    <core:Item text="2024년" key="2024"/>
 					<core:Item text="2023년" key="2023"/>
 					<core:Item text="2022년" key="2022"/>
 					<core:Item text="2021년" key="2021"/>

@@ -41,19 +41,36 @@ sap.ui.define([
 		//주문하기 눌렀을때 
 		onOpenCreateDialog: function (){
 			var oView = this.getView();
-            var oDialog = this.byId("idCreateDialog");
-            if (oDialog) {
-                oDialog.open();
-            } else {
-                Fragment.load({
-                    id: oView.getId(),
-                    name: "zcbsd.salesorder.view.New",
-                    controller:this
-                }).then(function(oDialog){
-                    oView.addDependent(oDialog);
-                    oDialog.open();
-                });
-            }
+			var oSelectedModel = this.byId("idSelectedTable").getModel("selected");
+			var oSelectedData = oSelectedModel.getData();
+			var check_quantity = true;
+
+			for(var i=0; i<oSelectedData.OrderSet.length;i++){
+				if (oSelectedData.OrderSet[i].Quantity <= 0){
+					MessageBox.show("수량은 0보다 큰 값을 입력해주세요.");
+					check_quantity = false;
+					break;
+				}
+				else {
+					check_quantity = true;
+				}
+			}
+
+			if(check_quantity){
+				var oDialog = this.byId("idCreateDialog");
+				if (oDialog) {
+					oDialog.open();
+				} else {
+					Fragment.load({
+						id: oView.getId(),
+						name: "zcbsd.salesorder.view.New",
+						controller:this
+					}).then(function(oDialog){
+						oView.addDependent(oDialog);
+						oDialog.open();
+					});
+				}
+			}
 		},
 
 		onCreateComplete: function(){
